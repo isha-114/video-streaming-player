@@ -1,1 +1,55 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-color: #1f1f1f; color: #fff; padding: 0; }
+/* Add application styles & imports to this file! */
+
+/* colors */
+$header-bg: #282828;
+$button-text: #4385f4;
+$white: #fff;
+$red: red;
+.black-bg { background-color: #000; }
+.red { color: $red; }
+
+.header-bg {
+  background-color: $header-bg;
+  padding: 15px;
+}
+
+section {
+  margin: 15px 0;
+  padding: 15px;
+
+  .button-text {
+    color: $button-text;
+  }
+
+  .card {
+    background: $header-bg;
+    padding: 15px;
+
+  }
+  .mat-mdc-form-field-input-control {
+    color: $white;
+  }
+  .mat-mdc-form-field-infix {
+    height: 50px;
+    width: 350px !important;
+    padding: 15px 0;
+  }
+
+  .mdc-text-field,
+  .mat-mdc-form-field-error-wrapper {
+    padding: 0 !important;
+  }
+
+  .mat-mdc-form-field {
+    display: block;
+  }
+  .mat-mdc-form-field-error {
+    display: flex !important;
+    color: $red;
+    font-size: 12px;
+  }
+}

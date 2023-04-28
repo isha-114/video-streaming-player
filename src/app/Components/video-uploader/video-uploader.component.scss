@@ -1,0 +1,64 @@
+@import '/src/styles.scss';
+
+/* Common classes */
+.text-center {
+  text-align: center;
+}
+.cursor-pointer {
+  cursor: pointer;
+}
+.w10 { width: 10%; }
+.p0 { padding: 0; }
+
+#upload-file {
+  mat-card {
+    width: 50%;
+    margin: 0 auto;
+
+    .file-input {
+      display: none;
+    }
+
+    .file-upload {
+      background-color: #333333;
+      padding: 15px;
+
+      .attach-file {
+        height: 45px;
+        width: 45px;
+        border-radius: 50%;
+        font-size: 22px;
+        margin-left: 10px;
+      }
+
+      .paper-clip-icon {
+        -webkit-transform: scaleX(-1);
+        transform: rotate(134deg) scaleX(-1);
+        vertical-align: text-bottom;
+      }
+    }
+
+    .upload-file {
+      width: 45%;
+      font-size: 18px;
+      transition: 0.3s;
+      &:hover {
+        background-color: $white;
+      }
+    }
+    .upload-file:hover {
+      background-color: $white;
+    }
+    // .first-progress {
+    //   height: 10px;
+    //   width: 100%;
+    //   background: #ddd;
+    //   border-radius: 4px;
+    // }
+    // .second-progress {
+    //   height: 10px;
+    //   background: #43ade5;
+    //   border-radius: 4px;
+    // }
+  }
+}

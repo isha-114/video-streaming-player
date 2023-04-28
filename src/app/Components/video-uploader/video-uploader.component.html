@@ -1,0 +1,101 @@
+<!-- Header -->
+<section class="header-bg">
+  <img src="/assets/Icon.png" class="w10"/>
+</section>
+
+<!-- Upload file section -->
+<section class="text-center" id="upload-file">
+  <form [formGroup]="uploadFile" (ngSubmit)="onSubmit()">
+    <mat-card>
+      <mat-card-content>
+        <input
+          type="file"
+          accept="video/*"
+          class="file-input"
+          (change)="onFileSelected($event)"
+          formControlName="fileSource"
+          name="fileSource"
+          #fileUpload
+        />
+
+        <div class="file-upload">
+          {{ fileName || 'No file uploaded yet.' }}
+
+          <button
+            type="button"
+            class="button-text attach-file cursor-pointer"
+            (click)="fileUpload.click()"
+          >
+            <i class="fa fa-paperclip paper-clip-icon" aria-hidden="true"></i>
+          </button>
+        </div>
+        <!-- <video [src]="url" *ngIf="format==='video' && url" height="200" controls></video> -->
+        <p class="red p0">{{errorMessage}}</p>
+        <mat-error
+          *ngIf="submitted && f['fileSource'].errors"
+          class="invalid-feedback"
+        >
+          <div *ngIf="f['fileSource'].errors['required']">
+            No files selected
+          </div>
+        </mat-error>
+        <div class="progress">
+          <mat-progress-bar
+            class="progress-bar"
+            mode="determinate"
+            [value]="uploadProgress"
+            *ngIf="uploadProgress"
+          >
+          </mat-progress-bar>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+    <!-- Upload file details -->
+    <mat-card>
+      <mat-card-content>
+        <h3 class="card-title">Upload video details</h3>
+        <mat-form-field class="form-field">
+          <mat-label>Title</mat-label>
+          <input
+            matInput
+            formControlName="title"
+            name="title"
+            placeholder="Title"
+            [ngClass]="{ 'is-invalid': submitted && f['title'].errors }"
+          />
+          <mat-error
+            *ngIf="submitted && f['title'].errors"
+            class="invalid-feedback"
+          >
+            <div *ngIf="f['title'].errors['required']">Title is required</div>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>Description</mat-label>
+          <textarea
+            matInput
+            formControlName="description"
+            name="description"
+            [ngClass]="{ 'is-invalid': submitted && f['description'].errors }"
+          ></textarea>
+          <mat-error
+            *ngIf="submitted && f['description'].errors"
+            class="invalid-feedback"
+          >
+            <div *ngIf="f['description'].errors['required']">
+              Description is required
+            </div>
+          </mat-error>
+        </mat-form-field>
+        <button
+          type="submit"
+          class="upload-file button-text header-bg cursor-pointer"
+          (click)="this.upload()"
+        >
+          Upload Video
+        </button>
+      </mat-card-content>
+    </mat-card>
+  </form>
+</section>
